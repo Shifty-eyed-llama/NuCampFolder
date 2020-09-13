@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Guessing Game</title>
+</head>
+<body onload="runGame()">
+     <script>
+         var target;
+         var guessInput;
+         var finished = false;
+         var guesses = 0;
+       
+        colorChoices = ["aqua", "black", "blue", "coral", "cyan", "fuchsia", "gold", "gray", "green", "hotpink", "indigo", "khaki", "lavender", "lime", "magenta", "maroon", "navy", "olive", "orange", "orchid", "purple", "salmon", "skyblue", "violet", "yellow"];
+         
+        function runGame(){
+            targetColor();
+            finished = false;
+
+            while (!finished){
+            guessInput = prompt("I am thinking of a color, can you guess what it is?\n\n" + (colorChoices.join(", "))).toLowerCase();
+            guesses++;
+            finished = checkGuess();
+            }
+        }
+         function targetColor(){
+             colorNum = (Math.round(Math.random()*(colorChoices.length)));
+             target = colorChoices[colorNum];
+             //alert(target)
+         }
+         
+         function checkGuess(){
+             if (colorChoices.includes(guessInput) == false){
+                 alert("I don't even think that is a color...");
+                 return false;
+             }
+            if (guessInput < target){
+                 alert("Not quite. I will give you a hint.\n\n Your number is alphabetically lower than mine.");
+                 return false;
+             }
+             if (guessInput > target) {
+                 alert("Not quite. I will give you a hint.\n\n Your number is alphabetically higher than mine.");
+                 return false;
+             }
+             if (guessInput == target) {
+                document.body.style.background = target; 
+                setTimeout(youWin, 10);
+                return true;
+                
+             }
+         }
+         function youWin() {
+             alert("You got it! Well done!\n\n It took you " + guesses + " guesses to get it!");
+             setTimeout(playAgain, 1000);
+         }
+         function playAgain() {
+             again = confirm("Would you like to play again?");
+             if (again == true){
+                 guesses = 0;
+                 runGame();
+             }
+         }
+        
+        //colorNum = (Math.round(Math.random()*(colorChoices.length)));
+        //console.log(colorNum);
+        //console.log(colorChoices.length);
+        //runGame()
+     </script>
+</body>
+</html>

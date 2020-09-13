@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function bigImg(x) {
+                x.style.height = "64px";
+                x.style.width = "64px";
+                document.getElementById("smiley").src = "rainbowSmile.gif";
+            }
+            function normalImg(x) {
+                x.style.height = "32px";
+                x.style.width = "32px";
+                document.getElementById("smiley").src = "smiley.gif";
+            }
+        </script>
+    </head>
+    <body>
+
+        <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="smiley.gif" alt="Smiley" width="32" height="32" id="smiley">
+
+        <p>The function bigImg() is trigered when the user moves the mouse pointer over the image. </p>
+        <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
+    </body>
+</html>

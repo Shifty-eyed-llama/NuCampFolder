@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matching Game</title>
+        <style>
+            /* img{
+                position:absolute;
+            } */
+            div{
+                /* background:cadetblue; */
+                position:absolute;
+                height:500px;
+                width:500px;
+            }
+            #rightSide{
+                position:absolute;
+                left:500px;
+                border-left: 1px solid black;
+                /* background:blueviolet; just to test position of divs*/
+            }
+        </style>
+       
+    </head>
+    <body onload="generateFaces()">
+        <h1>Matching Game</h1>
+        <p>There is an extra face on the left. Click on it to move to the next level.</p>
+        <div id="leftSide">
+​
+        </div>
+        <div id="rightSide">
+​
+        </div>
+        <script>
+            var numberOfFaces = 5;
+            var theLeftSide = document.getElementById("leftSide");
+            var theBody = document.getElementsByTagName("body")[0];
+            //alert(theLeftSide.nodeName);
+            function generateFaces(){   //this should put faces on the left "div"
+                for (i=0; i < numberOfFaces; i++) {
+                    var smileimg =  document.createElement("img");//tells the doc we are making an "img"
+                    smileimg.src= "smile.png";//source for our "img" variable
+                    theLeftSide.appendChild(smileimg);//adds our "img" to the div
+                    var styleTop = Math.round(Math.random()*400)+"px";//for randomizing the position
+                    var styleLeft = Math.round(Math.random()*400)+"px";
+                    smileimg.style.position = "absolute";//this was only here to test, but I like it
+                    smileimg.style.top = styleTop;
+                    smileimg.style.left = styleLeft;
+                    //console.log(styleTop); //just a little tester.
+                    //console.log(styleLeft);
+                }
+                    //next few lines are for copying left to right
+            var theRightSide = document.getElementById("rightSide");
+            var leftSideImages = document.getElementById("leftSide").cloneNode(true);//clone left side
+            leftSideImages.removeChild(leftSideImages.lastChild);//remove last element from clone
+            theRightSide.appendChild(leftSideImages);//paste right, minus the last node
+                //no idea why any of this is in the function, but that is the only way it would work
+            theLeftSide.lastChild.onclick=function nextLevel(event){
+                event.stopPropagation();//to stop program making more faces prematurley
+                numberOfFaces += 5;//add 5 more faces every round
+                    //while loops delete all children from both sides between each round
+                while (theLeftSide.firstChild){
+                    theLeftSide.removeChild(theLeftSide.firstChild);
+                }
+                while (theRightSide.firstChild){
+                    theRightSide.removeChild(theRightSide.firstChild);
+                }
+                generateFaces();//calling the function within itself because nothing matters anymore
+            };
+                //click anywhere but the one face and you are SOL
+            theBody.onclick = function gameOver(){
+                alert("Game Over!");
+                theBody.onclick = null;//null values so clicks no longer do anything
+                theLeftSide.lastChild.onclick = null;//null values to deepen the void
+            };
+        }
+        //I have no idea why this program works. I don't know why it all needs to be in one function, but it seems to work, and now nothing matters, so we are going with it.
+        </script>
+        <!-- <img src="smile.png" style="position:absolue; top:600px;" id="smile"> -->
+    </body>
+</html>

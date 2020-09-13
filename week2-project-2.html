@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dating Site</title>
+    <meta auther="Bryan">
+    <style>
+        body {
+            background-image: radial-gradient( blue, purple);
+        }
+        fieldset {
+            border:3px solid purple;
+            border-radius: 25px;
+            width:92%;
+            margin-bottom: 15px;
+            /* vertical-align: auto; */
+        }
+        legend {
+            color:white;
+            background-color: purple;
+            border-radius: 25px;
+            padding: 10px;
+            width:200px;
+            text-align:left;
+        }
+        form {
+            background-color:white;
+            border-radius:25px;
+            padding:20px;
+            /* text-align:center; */
+            vertical-align: auto;
+            border:1px solid black;
+            width:35%;
+            margin: auto;
+        }
+        input.text {
+            width: 100%;
+        }input.slider {
+            width: 60%;
+            text-align: auto;
+        }
+        h1 {
+            color:white;
+            text-align: center;
+        }
+        #submit {
+            color:white;
+            background-color:purple;
+            padding:10px;
+            border-radius:25px;
+            vertical-align:center;
+            width:120px;
+            height:60px;
+        }
+        #submit:hover {
+            background-color:green;
+            color:purple;
+        }
+    </style>
+    <script src="https://url.nucamp.co/datingjs"></script>
+</head>
+<body>
+    <h1>Please Enter Your Details For Our Dating Website</h1>
+    <form action="https://learn.nucamp.co/show_everything.php" method="post">
+        <fieldset>
+            <legend>Your Face</legend>
+            <label for="avatar">Your image:</label><br><br>
+                <input type="file" name="avatar" id="avatar" required><br><br>
+            <label for="preview">Image Preview:</label> <br>   <br>
+                <img id="preview" src="avatar" width="50%">
+        </fieldset>
+        <fieldset>
+            <legend>Your general details</legend>
+            <label for="usrname">Your Name:</label><br>
+                <input type="text" id="usrname" name="usrname" required placeholder="Full Name" class="text"><br><br>
+            <label for="gender">Gender:</label><br>
+                <label class="box" for="male">Male:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label class="box" for="female">Female:</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label class="box" for="other">Other:</label>
+                <input type="radio" id="other" name="gender" value="Other"><br><br>
+            <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" required class="text"><br><br>
+            <label for="dob">Birthday:</label><br>
+                <input type="date" id="dob" name="dob" required class="text"><br><br>
+            <label for="color">Favorite Color:</label>
+                <input type="color" id="color" name="color" required><br><br>
+            <label for="countries">Which County:</label>
+                <select id="countries" name="countries" required class="text">
+                    <option value="no selection">No Selection</option>
+                    <option value="united states">United States</option>
+                    <option value="mexico">Mexico</option>
+                    <option value="canada">Canada</option>
+                    <option value="iceland">Iceland</option>
+                    <option value="france">France</option>
+                </select>
+        </fieldset>
+        <fieldset>
+            <legend>Your Indicators</legend>
+            <label for="height">Height:</label>
+                <span class="low">  Short  </span><input type="range" min="0" max="100" step="5" class="slider"><span class="high">  Tall  </span><br>
+            <label for="salary">Salary:</label>
+                <span class="low">  Poor  </span><input type="range" min="0" max="100" step="5" class="slider"><span class="high">  Rich  </span>
+        </fieldset>
+        <fieldset>
+            <legend>Your Contact Information</legend>
+            <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required class="text"><br><br>
+            <label for="phone">Phone:</label><br>
+                <input type="tel" id="phone" name="phone" required class="text"><br><br>
+            <label for="address">Address:</label><br>
+                <textarea id="address" name="address" required cols="50" rows="3" class="text"></textarea><br><br>
+            <label for="cont-method">Preffered Contact Method:</label><br>
+                <input type="checkbox" id="email" name="cont-method">
+                <label for="email" class="box">Email</label>
+                <input type="checkbox" id="whatsapp" name="cont-method">
+                <label for="whatsapp" class="box">Whatsapp</label>
+                <input type="checkbox" id="in-app" name="cont-method">
+                <label for="in-app" class="box">In-App Chat</label>
+                
+        </fieldset>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Javascript Arrays</h2>
+        <script>
+           // let fruits, text, fLen, i;
+
+            fruits=["banana", "Orange", "apple","mango"];
+            fLen=fruits.length;
+            text="<ul>";
+                for (i=0; i<fLen; i++) {
+                    text = text + "<li>" + fruits[i] + "</li>";
+                }
+            text = text + "</ul>";
+            alert("This is the resulting Array using an HTML List: " + text);
+        </script>
+    </body>
+</html>

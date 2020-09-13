@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>The Eightball Knows</title>
+    <style>
+        body {
+            background-image: radial-gradient(blue, violet, black)
+
+        }
+        div {
+            width: 500px;
+            height: 500px;
+        }
+        #paragraph {
+          text-align: center; 
+          top: 250px;
+          color:darkmagenta;
+          margin-left: auto; 
+          margin-right: auto;
+          margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="paragraph">
+    <h1>The Eightball Has Seen The Void.</h1>
+    <h2>The Eightball Knows Your Secrets.</h2>
+    <h3>The Eightball Knows The Truth.</h3>
+        </div>
+    <script>
+        setTimeout(runGame());
+    var usrInput = prompt("What is it that you wish to know?");
+    var num = (Math.round(Math.random()*8));
+    console.log(num);
+    function runGame(){
+    switch (num){
+        case 0:
+        alert("Signs point to no.");
+        break;
+        case 1:
+        alert("Doubtful");
+        break;
+        case 2:
+        alert("Undoubtedly");
+        break;
+        case 3:
+        alert("Check again later.");
+        break;
+        case 4:
+        alert("Definitely");
+        break;
+        case 5:
+        alert("Meh, Probably");
+        break;
+        case 6:
+        alert("It will surely come to pass");
+        break;
+        case 7:
+        alert("Not a chance");
+        break;
+    }
+    }
+</script>
+    </div>
+</body>
+</html>
